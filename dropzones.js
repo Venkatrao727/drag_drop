@@ -70,24 +70,6 @@
                 }
             })
             .on('dropactivate', function (event) {
-                if($('.drop1').length == 0) {
-                if(event.target.classList.contains('containerButton')) {
-                    var dropContainerChildren = $('.dropzone').children();
-                    if(dropContainerChildren.length > 0 ) {
-                        $(dropContainerChildren).each(function(i, ele) {
-                            $(ele).after(draggedContent);
-                        });
-                    }
-                    $('.dropzone').prepend(draggedContent);
-            } else if(event.target.classList.contains('widgetButton')) {
-                $('.container').each(function(index, containerElem) {
-				debugger;
-                    if($(containerElem).children().length == 0) {
-                        $(containerElem).append(draggedContent);
-                    }
-                });
-            }
-            }
                 event.target.classList.add('-drop-possible');
             })
             .on('dropdeactivate', function (event) {
@@ -95,8 +77,7 @@
 			    $('.drop1').remove();
             })
             .on('dragenter', function (event) {
-			debugger;
-                event.target.classList.add('-drop-over');
+			    event.target.classList.add('-drop-over');
 				}).on('dragleave', function (event) {
                 event.target.classList.remove('-drop-over');
             })
